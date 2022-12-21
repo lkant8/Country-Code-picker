@@ -13,6 +13,6 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "Togii"
+rootProject.name = "Mcode"
 include ':app'
 include ':ccp'
