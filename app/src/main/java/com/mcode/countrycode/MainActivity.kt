@@ -48,7 +48,7 @@ fun SampleCountryPicker() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp),
-                    text = stringResource(R.string.select_country_text), textAlign = TextAlign.Center,
+                    text = stringResource(R.string.select_country), textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp
                 )
@@ -64,7 +64,7 @@ fun SampleCountryPicker() {
             }
         ) {
             CountryTextField(
-                label = stringResource(R.string.select_country_text),
+                label = stringResource(R.string.select_country),
                 modifier = Modifier
                     .padding(top = 50.dp)
                     .align(Alignment.TopCenter),
