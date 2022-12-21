@@ -33,7 +33,7 @@ Languages:
 
 ```kotlin
 @Composable
-fun TogiCountryCodePicker(
+fun MCodeCountryCodePicker(
     modifier: Modifier = Modifier,
     text: String,
     onValueChange: (String) -> Unit,
@@ -68,7 +68,7 @@ fun CountryCodePick() {
         val fullPhoneNumber = rememberSaveable { mutableStateOf("") }
         val onlyPhoneNumber = rememberSaveable { mutableStateOf("") }
 
-        TogiCountryCodePicker(
+        MCodeCountryCodePicker(
             text = phoneNumber.value,
             onValueChange = { phoneNumber.value = it },
             unfocusedBorderColor = MaterialTheme.colors.primary,

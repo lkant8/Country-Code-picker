@@ -38,7 +38,7 @@ import com.mcode.ccp.utils.searchCountry
 
 
 @Composable
-fun TogiCodeDialog(
+fun MCodeDialog(
     modifier: Modifier = Modifier,
     padding: Dp = 15.dp,
     defaultSelectedCountry: CountryData = getLibCountries.first(),
