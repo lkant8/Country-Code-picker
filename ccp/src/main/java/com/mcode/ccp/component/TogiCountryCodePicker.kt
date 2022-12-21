@@ -22,12 +22,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.mcode.ccp.R
 import com.mcode.ccp.data.utils.getDefaultLangCode
 import com.mcode.ccp.data.utils.getDefaultPhoneCode
 import com.mcode.ccp.data.utils.getLibCountries
 import com.mcode.ccp.data.utils.getNumberHint
 import com.mcode.ccp.transformation.PhoneNumberTransformation
+import com.togitech.ccp.R
 
 
 private var fullNumberState: String by mutableStateOf("")
