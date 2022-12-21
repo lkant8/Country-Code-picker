@@ -6,6 +6,9 @@ Jetpack Compose Country Code Picker
 
 <h1>Updated</h1>
 
+[![](https://jitpack.io/v/codewith-fun/Country-Code-picker.svg)](https://jitpack.io/#codewith-fun/Country-Code-picker)
+
+
 If you are looking for Country Phone Code Picker for Jetpack Compose you can use the package.
 
 * Country numbers hints
@@ -108,4 +111,80 @@ fun CountryCodePick() {
 <b>getOnlyPhoneNumber()</b> => Phone number only => return type <b>String</b> </br>
 <b>isPhoneNumber()</b> => Checks if the phone number is correct based on the country code => return type <b>Boolean</b>/</br>
 
+## How to add in your project
+<h5>To get a Git project into your build:</h5>
+<h6>Step 1. Add the JitPack repository to your build file</h6>
 
+## Gradle
+<p>Add it in your root build.gradle at the end of repositories:</p>
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+```
+## Step 2. 
+<p>Add the dependency</p>
+
+```
+dependencies {
+	        implementation 'com.github.codewith-fun:Country-Code-picker:0.1.0-beta01'
+	}
+
+```
+
+
+## Maven
+<p>Add it in your root build.gradle at the end of repositories:</p>
+
+```
+<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+## Step 2.
+<p>Add the dependency</p>
+
+```
+<dependency>
+	    <groupId>com.github.codewith-fun</groupId>
+	    <artifactId>Country-Code-picker</artifactId>
+	    <version>0.1.0-beta01</version>
+	</dependency>
+```
+
+
+## sbt
+<p>Add it in your root build.gradle at the end of repositories:</p>
+
+```
+resolvers += "jitpack" at "https://jitpack.io"
+```
+## Step 2.
+<p>Add the dependency</p>
+
+```
+libraryDependencies += "com.github.codewith-fun" % "Country-Code-picker" % "0.1.0-beta01"	
+```
+
+
+## leiningen
+<p>Add it in your root build.gradle at the end of repositories:</p>
+
+```
+ :repositories [["jitpack" "https://jitpack.io"]]
+```
+## Step 2.
+<p>Add the dependency</p>
+
+```
+	:dependencies [[com.github.codewith-fun/Country-Code-picker "0.1.0-beta01"]]	
+
+```
