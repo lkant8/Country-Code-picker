@@ -105,7 +105,7 @@ fun CountryCodePick() {
 
 ```
 
-<h3><- Functions -></h3>
+<h3> Functions </h3>
 
 <b>getFullPhoneNumber()</b>  => Phone number with country code => return type <b>String</b> </br>
 <b>getOnlyPhoneNumber()</b> => Phone number only => return type <b>String</b> </br>
