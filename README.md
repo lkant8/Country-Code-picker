@@ -36,19 +36,17 @@ Languages:
 
 ```kotlin
 @Composable
-fun MCodeCountryCodePicker(
-    modifier: Modifier = Modifier,
-    text: String,
-    onValueChange: (String) -> Unit,
-    shape: Shape = RoundedCornerShape(24.dp),
-    color: Color = MaterialTheme.colors.background,
-    showCountryCode: Boolean = true,
-    showCountryFlag: Boolean = true,
-    focusedBorderColor: Color = MaterialTheme.colors.primary,
-    unfocusedBorderColor: Color = MaterialTheme.colors.onSecondary,
-    cursorColor: Color = MaterialTheme.colors.primary,
-    bottomStyle: Boolean = false
-)
+ CountryTextField(
+                label = stringResource(R.string.select_country_text),
+                modifier = Modifier
+                    .padding(top = 50.dp)
+                    .align(Alignment.TopCenter),
+                expanded = expanded,
+                selectedCountry = selectedCountry,
+                defaultSelectedCountry = countryList(LocalContext.current).single { it.code == "IN" }
+            ) {
+	    
+	    }
 
 ```  
 
@@ -56,52 +54,42 @@ fun MCodeCountryCodePicker(
 
 
 ```kotlin
+    Box {
+        var expanded by remember { mutableStateOf(false) }
+        var selectedCountry by remember { mutableStateOf<Country?>(null) }
+        val focusManager = LocalFocusManager.current
 
-@Composable
-fun CountryCodePick() {
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        val phoneNumber = rememberSaveable { mutableStateOf("") }
-        val fullPhoneNumber = rememberSaveable { mutableStateOf("") }
-        val onlyPhoneNumber = rememberSaveable { mutableStateOf("") }
-
-        MCodeCountryCodePicker(
-            text = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it },
-            unfocusedBorderColor = MaterialTheme.colors.primary,
-            bottomStyle =false,
-            shape = RoundedCornerShape(24.dp)
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(onClick = {
-            if (!isPhoneNumber()) {
-                fullPhoneNumber.value = getFullPhoneNumber()
-                onlyPhoneNumber.value = getOnlyPhoneNumber()
-            } else {
-                fullPhoneNumber.value = "Error"
-                onlyPhoneNumber.value = "Error"
-            }
+        CountryPickerBottomSheet(title = {
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                text = "Select Country", textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp
+            )
+        }, expanded, onDismissRequest = {
+            expanded = false
+        }, onItemSelected = {
+            selectedCountry = it
+            expanded = false
+            focusManager.clearFocus()
         }) {
-            Text(text = "Check")
+            CountryTextField(
+                label = "Select country",
+                modifier = Modifier
+                    .padding(top = 50.dp)
+                    .align(Alignment.TopCenter),
+                expanded,
+                defaultSelectedCountry = countryList(LocalContext.current).single { it.code == "IN" },
+                selectedCountry
+            ) {
+                expanded = !expanded
+            }
+
         }
 
-        Text(
-            text = "Full Phone Number: ${fullPhoneNumber.value}",
-            color = if (getErrorStatus()) Color.Red else Color.Green
-        )
-
-        Text(
-            text = "Only Phone Number: ${onlyPhoneNumber.value}",
-            color = if (getErrorStatus()) Color.Red else Color.Green
-        )
     }
-}
 
 ```
 
