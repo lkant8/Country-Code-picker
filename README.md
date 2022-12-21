@@ -53,8 +53,9 @@ fun TogiCountryCodePicker(
 
 
 ```kotlin
+
 @Composable
-fun CountryCodePickerExample() {
+fun CountryCodePick() {
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())
@@ -71,7 +72,7 @@ fun CountryCodePickerExample() {
             text = phoneNumber.value,
             onValueChange = { phoneNumber.value = it },
             unfocusedBorderColor = MaterialTheme.colors.primary,
-            bottomStyle =false, //  if true the text-field is below the country code selector at the top.
+            bottomStyle =false,
             shape = RoundedCornerShape(24.dp)
         )
         Spacer(modifier = Modifier.height(10.dp))
