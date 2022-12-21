@@ -120,7 +120,7 @@ allprojects {
 
 ```
 dependencies {
-	        implementation 'com.github.codewith-fun:Country-Code-picker:0.1.0-beta01'
+	        implementation 'com.github.codewith-fun:Country-Code-picker:0.1.1'
 	}
 
 ```
@@ -144,7 +144,7 @@ dependencies {
 <dependency>
 	    <groupId>com.github.codewith-fun</groupId>
 	    <artifactId>Country-Code-picker</artifactId>
-	    <version>0.1.0-beta01</version>
+	    <version>0.1.1</version>
 	</dependency>
 ```
 
@@ -159,7 +159,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 <p>Add the dependency</p>
 
 ```
-libraryDependencies += "com.github.codewith-fun" % "Country-Code-picker" % "0.1.0-beta01"	
+libraryDependencies += "com.github.codewith-fun" % "Country-Code-picker" % "0.1.1"	
 ```
 
 
@@ -173,7 +173,7 @@ libraryDependencies += "com.github.codewith-fun" % "Country-Code-picker" % "0.1.
 <p>Add the dependency</p>
 
 ```
-	:dependencies [[com.github.codewith-fun/Country-Code-picker "0.1.0-beta01"]]	
+	:dependencies [[com.github.codewith-fun/Country-Code-picker "0.1.1"]]	
 
 ```
 
