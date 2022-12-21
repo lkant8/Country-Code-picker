@@ -4,91 +4,84 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import androidx.compose.ui.unit.sp
+import com.mcode.ccp.R
 import com.mcode.ccp.component.*
+import com.mcode.ccp.utils.Country
+import com.mcode.ccp.utils.countryList
 import com.mcode.countrycode.ui.theme.MCodeTheme
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MCodeTheme {
-                val systemUiController = rememberSystemUiController()
-                systemUiController.setStatusBarColor(
-                    color = MaterialTheme.colors.primary,
-                    false
-                )
-                systemUiController.setSystemBarsColor(
-                    color = MaterialTheme.colors.primary,
-                    false
-                )
-                Scaffold(modifier = Modifier.fillMaxSize(),
-                    topBar = { TopAppBar(title = { Text(text = "Mcode") }) }) { top ->
-                    top.calculateTopPadding()
-                    Surface(modifier = Modifier.fillMaxSize()) {
-                        CountryCodePick()
-                    }
+            MCodeTheme() {
+                Surface(color = MaterialTheme.colors.background) {
+                    SampleCountryPicker()
                 }
             }
         }
     }
 }
 
-
 @Composable
-fun CountryCodePick() {
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+fun SampleCountryPicker() {
+    Box {
+        var expanded by remember { mutableStateOf(false) }
+        var selectedCountry by remember { mutableStateOf<Country?>(null) }
+        val focusManager = LocalFocusManager.current
 
-        val phoneNumber = rememberSaveable { mutableStateOf("") }
-        val fullPhoneNumber = rememberSaveable { mutableStateOf("") }
-        val onlyPhoneNumber = rememberSaveable { mutableStateOf("") }
-
-        MCodeCountryCodePicker(
-            text = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it },
-            unfocusedBorderColor = MaterialTheme.colors.primary,
-            bottomStyle =false,
-            shape = RoundedCornerShape(24.dp)
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-        Button(onClick = {
-            if (!isPhoneNumber()) {
-                fullPhoneNumber.value = getFullPhoneNumber()
-                onlyPhoneNumber.value = getOnlyPhoneNumber()
-            } else {
-                fullPhoneNumber.value = "Error"
-                onlyPhoneNumber.value = "Error"
+        CountryPickerBottomSheet(
+            title = {
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    text = stringResource(R.string.select_country_text), textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp
+                )
+            },
+            expanded,
+            onDismissRequest = {
+                expanded = false
+            },
+            onItemSelected = {
+                selectedCountry = it
+                expanded = false
+                focusManager.clearFocus()
             }
-        }) {
-            Text(text = "Check")
+        ) {
+            CountryTextField(
+                label = stringResource(R.string.select_country_text),
+                modifier = Modifier
+                    .padding(top = 50.dp)
+                    .align(Alignment.TopCenter),
+                expanded = expanded,
+                selectedCountry = selectedCountry,
+                defaultSelectedCountry = countryList(LocalContext.current).single { it.code == "IN" }
+            ) {
+                expanded = !expanded
+            }
         }
+    }
+}
 
-        Text(
-            text = "Full Phone Number: ${fullPhoneNumber.value}",
-            color = if (getErrorStatus()) Color.Red else Color.Green
-        )
-
-        Text(
-            text = "Only Phone Number: ${onlyPhoneNumber.value}",
-            color = if (getErrorStatus()) Color.Red else Color.Green
-        )
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    MCodeTheme() {
+        SampleCountryPicker()
     }
 }
