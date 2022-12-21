@@ -1,4 +1,4 @@
-package com.mcode.togii
+package com.mcode.countrycode
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mcode.ccp.component.*
-import com.mcode.togii.ui.theme.MCodeTheme
+import com.mcode.countrycode.ui.theme.MCodeTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -61,7 +61,7 @@ fun CountryCodePick() {
         val fullPhoneNumber = rememberSaveable { mutableStateOf("") }
         val onlyPhoneNumber = rememberSaveable { mutableStateOf("") }
 
-        TogiCountryCodePicker(
+        MCodeCountryCodePicker(
             text = phoneNumber.value,
             onValueChange = { phoneNumber.value = it },
             unfocusedBorderColor = MaterialTheme.colors.primary,

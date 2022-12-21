@@ -1,4 +1,4 @@
-package com.mcode.togii.ui.theme
+package com.mcode.countrycode.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
