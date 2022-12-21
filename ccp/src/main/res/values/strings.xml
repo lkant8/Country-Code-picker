@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="search_text" translatable="false">Search</string>
     <string name="andora">Andorra</string>
     <string name="united_arab_emirates">United Arab Emirates (UAE)</string>
     <string name="afghanistan">Afghanistan</string>
