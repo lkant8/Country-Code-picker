@@ -17,14 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.mcode.ccp.component.*
-import com.mcode.togii.ui.theme.TogiiTheme
+import com.mcode.togii.ui.theme.MCodeTheme
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TogiiTheme {
+            MCodeTheme {
                 val systemUiController = rememberSystemUiController()
                 systemUiController.setStatusBarColor(
                     color = MaterialTheme.colors.primary,
@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     false
                 )
                 Scaffold(modifier = Modifier.fillMaxSize(),
-                    topBar = { TopAppBar(title = { Text(text = "Togisoft") }) }) { top ->
+                    topBar = { TopAppBar(title = { Text(text = "Mcode") }) }) { top ->
                     top.calculateTopPadding()
                     Surface(modifier = Modifier.fillMaxSize()) {
                         CountryCodePick()
