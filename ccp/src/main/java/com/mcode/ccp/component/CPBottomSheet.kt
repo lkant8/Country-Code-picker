@@ -55,8 +55,6 @@ fun CountryPickerBottomSheet(
     }
 
     LaunchedEffect(key1 = modalBottomSheetState.currentValue) {
-        Log.e("State updates", "Current " + modalBottomSheetState.currentValue)
-
         if (modalBottomSheetState.currentValue == ModalBottomSheetValue.Hidden) {
             onDismissRequest()
         }
