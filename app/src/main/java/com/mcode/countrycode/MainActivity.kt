@@ -33,6 +33,11 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
+    }
 }
 
 @Composable
@@ -84,4 +89,6 @@ fun DefaultPreview() {
     MCodeTheme() {
         SampleCountryPicker()
     }
+
+
 }

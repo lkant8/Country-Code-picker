@@ -11,3 +11,4 @@ data class CountryData(
 ) {
     val countryCode = cCodes.lowercase(Locale.getDefault())
 }
+
