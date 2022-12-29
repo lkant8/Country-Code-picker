@@ -12,23 +12,15 @@ Jetpack Compose Country Code Picker
 If you are looking for Country Phone Code Picker for Jetpack Compose you can use the package.
 
 * Country numbers hints
-* Phone number visualTransformation (Automatic number formatting)
-* Automatic country recognition (detection by sim card if sim card is inserted)
+* Automatic country recognition With Local 
 * With TextField
 * Can Customize
-* Added language translations
 * Added clear text button
 * Dialog changed
 
 Languages:
 
-* Turkish
 * English
-* Italian
-* Arabic
-* Russian
-* Dutch
-
 
 
 
@@ -52,52 +44,6 @@ Languages:
 
 <h3> EXAMPLE </h3>
 
-
-```kotlin
-    Box {
-        var expanded by remember { mutableStateOf(false) }
-        var selectedCountry by remember { mutableStateOf<Country?>(null) }
-        val focusManager = LocalFocusManager.current
-
-        CountryPickerBottomSheet(title = {
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                text = "Select Country", textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp
-            )
-        }, expanded, onDismissRequest = {
-            expanded = false
-        }, onItemSelected = {
-            selectedCountry = it
-            expanded = false
-            focusManager.clearFocus()
-        }) {
-            CountryTextField(
-                label = "Select country",
-                modifier = Modifier
-                    .padding(top = 50.dp)
-                    .align(Alignment.TopCenter),
-                expanded,
-                defaultSelectedCountry = countryList(LocalContext.current).single { it.code == "IN" },
-                selectedCountry
-            ) {
-                expanded = !expanded
-            }
-
-        }
-
-    }
-
-```
-
-<h3> Functions </h3>
-
-<b>getFullPhoneNumber()</b>  => Phone number with country code => return type <b>String</b> </br>
-<b>getOnlyPhoneNumber()</b> => Phone number only => return type <b>String</b> </br>
-<b>isPhoneNumber()</b> => Checks if the phone number is correct based on the country code => return type <b>Boolean</b>/</br>
 
 ## How to add in your project
 <h5>To get a Git project into your build:</h5>
