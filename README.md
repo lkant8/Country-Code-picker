@@ -6,7 +6,7 @@ Jetpack Compose Country Code Picker
 
 
 
-https://github.com/codewith-fun/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png
+https://github.com/mcode8/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png
 
 <h1>Updated</h1>
 
@@ -27,10 +27,10 @@ Languages:
 * English
 
 <h3>Screenshot</h3>
-<img src="https://github.com/codewith-fun/Country-Code-picker/blob/main/screenshot/ios.png" width="230">
-<img src="https://github.com/codewith-fun/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png" width="230">
-https://github.com/codewith-fun/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png
-https://github.com/codewith-fun/Country-Code-picker/blob/main/screenshot/ios.png
+<img src="https://github.com/mcode8/Country-Code-picker/blob/main/screenshot/ios.png" width="230">
+<img src="https://github.com/mcode8/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png" width="230">
+https://github.com/mcode8/Country-Code-picker/blob/main/screenshot/Screenshot%202022-12-29%20141313.png
+https://github.com/mcode8/Country-Code-picker/blob/main/screenshot/ios.png
 
 <h3> USAGE </h3>
 
